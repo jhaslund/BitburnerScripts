@@ -10,8 +10,8 @@ export async function main(ns) {
     return;
   }
 
-  var ramCost = ns.getScriptRam("xpWeaken.js");
-  var threads = Math.floor(tenPercentRam / ramCost);
-  var pid = ns.run("xpWeaken.js", threads, ns.args[0]);
+  var ramCost = ns.getScriptRam("pWeaken.js");
+  var threads = Math.max(1, Math.floor(tenPercentRam / ramCost));
+  var pid = ns.run("pWeaken.js", threads, ns.args[0]);
   ns.tail(pid);
 }
